@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: dmaa_postgres_db
+    ports:
+      - 5433:5432
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+      - ./inputData/:/data/
+    environment:
+      - POSTGRES_DB=dmaa_postgres
+      - POSTGRES_USER=dmaa_postgres
+      - POSTGRES_PASSWORD=dmaa_secretpassword
+volumes:
+    postgres_volume:
+        name: postgres_ddaa
+        external: false
