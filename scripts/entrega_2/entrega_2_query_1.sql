@@ -11,7 +11,7 @@ WITH aggregated_data AS (
     GROUP BY zona_interes_750m
 )
 SELECT
-    zona_interes_750m,
+    zona_interes_750m   as zona_interes,
     cant_trx
 FROM aggregated_data
 WHERE cant_trx = (SELECT MAX(cant_trx) FROM aggregated_data);
